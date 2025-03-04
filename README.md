@@ -28,7 +28,9 @@ with extreme caution.
   - `--file` file the comment applies to
   - `--line` line number the comment applies to (`--file` must also be present)
   - Note this command is obviously a little clunky—the idea is to wrap this with editor tooling to make things nicer
+- `git cr show [SHA]`: shows the status and all comments on commit (`HEAD` if `SHA` is not supplied)
 
 ## Future ideas:
 
+- Add datetime to comments
 - Comment types (e.g. "must-change", "suggestion")

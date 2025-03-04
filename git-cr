@@ -21,6 +21,10 @@ case $1 in
     shift
     ./comment.bash $@
     ;;
+  "show")
+    shift
+    ./show.bash $@
+    ;;
   *)
     echo "Unknown option $1"
     exit 1

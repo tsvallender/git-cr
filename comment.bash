@@ -29,14 +29,14 @@ do
   esac
 done
 
-if [ -z ${MESSAGE:-} ]
+if [[ -v MESSAGE ]]
 then
   # TODO: Open an editor for the message if blank, like git-commit
   echo "Please supply a message"
   exit 1
 fi
 
-if [ -n ${LINE_NO:-} ] && [ -z ${FILENAME:-} ]
+if [[ -v LINE_NO && ! -v FILENAME ]]
 then
   echo "If supplying a line number, you must supply a filename."
   exit 1
