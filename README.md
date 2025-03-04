@@ -15,7 +15,20 @@ git-cr is a code review tool with the following goals:
 `git-cr` is currently a toy experimental project that does very little and should be treated
 with extreme caution.
 
+## Requirements
+
+- git
+- jq
+
 ## Usage
 
 - `git cr waiting`: show commits awaiting approval
 - `git cr approve [SHA]`: mark a commit as approved (`HEAD` if `SHA` is not supplied)
+- `git cr comment [SHA] -m "message"`: add a comment (`HEAD` if `SHA` is not supplied), optional arguments:
+  - `--file` file the comment applies to
+  - `--line` line number the comment applies to (`--file` must also be present)
+  - Note this command is obviously a little clunky—the idea is to wrap this with editor tooling to make things nicer
+
+## Future ideas:
+
+- Comment types (e.g. "must-change", "suggestion")
