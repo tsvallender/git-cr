@@ -10,3 +10,7 @@ git-cr is a code review tool with the following goals:
 - Tooling should meet the developer where they are: I want to be able to review code from my terminal,
   and in the editor of my choosing, not in a web UI.
 
+## Usage
+
+- `git cr waiting`: show commits awaiting approval
+- `git cr approve [SHA]`: mark a commit as approved (`HEAD` if `SHA` is not supplied)
