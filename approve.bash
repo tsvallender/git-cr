@@ -3,6 +3,7 @@
 set -euo pipefail
 
 source shared.bash
+GIT_NOTES_REF=refs/notes/git-cr
 
 if [ -z ${SHA:-} ]
 then

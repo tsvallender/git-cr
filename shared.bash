@@ -1,3 +1,4 @@
+GIT_NOTES_REF=refs/notes/git-cr
 POS_ARGS=()
 
 while [[ $# -gt 0 ]]
