@@ -10,5 +10,10 @@ then
 fi
 USER="$(git config user.email)"
 
-git notes append $SHA --message "Approved-By: ${USER}"
-
+MESSAGE="Approved-By: ${USER}"
+if git notes show $SHA &>/dev/null | grep "${MESSAGE}"
+then
+  echo "You have already approved this commit"
+else
+  git notes append $SHA --message "Approved-By: ${USER}"
+fi

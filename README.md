@@ -19,6 +19,7 @@ with extreme caution.
 
 - git
 - jq
+- mktemp
 
 ## Usage
 
@@ -32,5 +33,7 @@ with extreme caution.
 
 ## Future ideas:
 
+- `review` command to easily annotate a diff
 - Add datetime to comments
 - Comment types (e.g. "must-change", "suggestion")
+- Ability to reply to specific comments
