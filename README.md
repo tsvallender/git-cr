@@ -21,6 +21,30 @@ with extreme caution.
 - jq
 - mktemp
 
+## How it works
+
+We store code review in [git notes](https://git-scm.com/docs/git-notes), an underused git feature allowing
+you to add metadata to commits without changing the commit itself. We store these under the ref `git-cr`,
+so they don’t get in the way of any other uses git notes is being put to.
+
+## Setup
+
+By default git notes aren’t shared, so a small amount of config is necessary to make that the case. To
+make git always push and fetch notes, add this to your project’s git config:
+
+```
+[remote "origin"]
+    push = +refs/notes/*:refs/notes/*
+    fetch = refs/notes/*:refs/notes/*
+```
+(replace `*` with `git-cr` if you want this to _only_ apply to git-cr notes rather than all of them.
+
+And for quality of life, to have notes changes in your reflog, add this to your git config:
+```
+[core]
+    logAllRefUpdates = always
+```
+
 ## Usage
 
 - `git cr waiting`: show commits awaiting approval
