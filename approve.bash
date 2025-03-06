@@ -2,13 +2,24 @@
 
 set -euo pipefail
 
-source shared.bash
 GIT_NOTES_REF=refs/notes/git-cr
 
-if [ -z ${SHA:-} ]
-then
-  SHA="HEAD"
-fi
+POS_ARGS=()
+while [[ $# -gt 0 ]]
+do
+  case $1 in
+    -*|--*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
+    *)
+      POS_ARGS+=("$1")
+      shift
+      ;;
+  esac
+done
+
+SHA=${POS_ARGS[0]:-"HEAD"}
 USER="$(git config user.email)"
 
 MESSAGE="Approved-By: ${USER}"
